@@ -156,7 +156,7 @@ async def pms(ctx, user: discord.User, *, message=None):
 
 @bot.command(pass_context = True)
 async def suggest(ctx, *, suggest=None):
-    channel = bot.get_channel(648929055151882241)
+    channel = bot.get_channel(652146474037149706)
     embed = discord.Embed(color=0xffff00)
     embed.set_author(name=f'{ctx.author}')
     embed.add_field(name='Suggestion:', value=suggest, inline=False)
