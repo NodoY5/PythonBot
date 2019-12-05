@@ -12,7 +12,7 @@ with open(extension_file) as file:
 
 
 def get_prefix(bot, msg):
-    prefixes = ['?']
+    prefixes = ['%']
 
     return commands.when_mentioned_or(*prefixes)(bot, msg)
 
@@ -32,9 +32,9 @@ async def change_status():
 
 @bot.listen()
 async def on_member_join(member):
-    role = discord.utils.get(member.guild.roles, name='Member')
+    role = discord.utils.get(member.guild.roles, name='Members')
     await member.add_roles(role)
-    channel = discord.utils.get(member.guild.channels, name='welcome')
+    channel = discord.utils.get(member.guild.channels, name='new-members')
     embed = discord.Embed(color=0xFFFF)
     embed.set_author(name='Welcome to the Server!')
     embed.add_field(name=f'New member!', value=f'{member} has joined this server!', inline=False)
@@ -134,7 +134,7 @@ async def warn(ctx, user: discord.User, *, reason=None):
     await ctx.channel.purge(limit=1)
     embeda = discord.Embed(color=0xFFFF)
     embeda.set_author(name=f'Warning')
-    embeda.add_field(name='You were warned in Elite Programmers group for :', value=reason, inline=False)
+    embeda.add_field(name='You were warned in The kingdom for :', value=reason, inline=False)
     await user.send(embed=embeda)
     await ctx.send(str(user) + ' has succesfully been warned for ' + reason)
     channel = bot.get_channel(650348478056235014)
@@ -168,7 +168,7 @@ async def suggest(ctx, *, suggest=None):
 async def kick(ctx, user:discord.Member, *, reason=None):
     embeda = discord.Embed(color=0xFFFF)
     embeda.set_author(name='Kicked!')
-    embeda.add_field(name='You were kicked from Elite Programmers Group for :', value=reason, inline=False)
+    embeda.add_field(name='You were kicked from The kingdom for :', value=reason, inline=False)
     await user.send(embed=embeda)
     await user.kick(reason=reason)
     await ctx.send(str(user) + ' has succesfully been kicked for : ' + reason)
@@ -184,7 +184,7 @@ async def kick(ctx, user:discord.Member, *, reason=None):
 async def ban(ctx, user:discord.Member, *, reason=None):
     embeda = discord.Embed(color=0xFFFF)
     embeda.set_author(name='Banned!')
-    embeda.add_field(name='You were Banned from Elite Programmers Group for :', value=reason, inline=False)
+    embeda.add_field(name='You were Banned from The kingdom for :', value=reason, inline=False)
     await user.send(embed=embeda)
     await user.ban(reason=reason)
     await ctx.send(str(user) + ' has succesfully been banned for : ' + reason)
