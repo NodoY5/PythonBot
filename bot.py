@@ -12,14 +12,14 @@ with open(extension_file) as file:
 
 
 def get_prefix(bot, msg):
-    prefixes = ['%']
+    prefixes = ['?']
 
     return commands.when_mentioned_or(*prefixes)(bot, msg)
 
 bot=commands.Bot(case_insensitive=True,command_prefix=get_prefix)
 bot.remove_command('help')
 
-status = cycle(['PyBot v1.0!', 'with WoozyDragon', 'VLC Media Player', 'Ludo', 'Snakes and Ladders', 'Space Shuttle', 'ISRO', 'Human Legacy by Ivan Torrent'])
+status = cycle(['PyBot v1.0!', 'with WoozyDragon', 'Age of Empire', ])
 
 @bot.listen()
 async def on_ready():
