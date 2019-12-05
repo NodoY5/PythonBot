@@ -19,7 +19,7 @@ def get_prefix(bot, msg):
 bot=commands.Bot(case_insensitive=True,command_prefix=get_prefix)
 bot.remove_command('help')
 
-status = cycle(['PyBot v1.0!', 'with WoozyDragon', 'Age of Empire'])
+status = cycle(['PyBot v1.0!', 'with WoozyDragon', 'Age of Empire', 'Corn Hub', 'At your service!', '?help | \'send help plz\''])
 
 @bot.listen()
 async def on_ready():
@@ -156,6 +156,7 @@ async def pms(ctx, user: discord.User, *, message=None):
 
 @bot.command(pass_context = True)
 async def suggest(ctx, *, suggest=None):
+    await ctx.channel.purge(limit=1)
     channel = bot.get_channel(652146474037149706)
     embed = discord.Embed(color=0xffff00)
     embed.set_author(name=f'{ctx.author}')
