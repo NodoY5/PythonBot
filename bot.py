@@ -19,7 +19,7 @@ def get_prefix(bot, msg):
 bot=commands.Bot(case_insensitive=True,command_prefix=get_prefix)
 bot.remove_command('help')
 
-status = cycle(['PyBot v1.0!', 'with WoozyDragon', 'Age of Empire', ])
+status = cycle(['PyBot v1.0!', 'with WoozyDragon', 'Age of Empire'])
 
 @bot.listen()
 async def on_ready():
